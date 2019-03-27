@@ -1,21 +1,55 @@
 package br.usjt.edu.previsaotempo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@Table(name = "PERIODO")
 public class Periodo implements Serializable {
     @Id
     @GeneratedValue
+    @Column(name = "ID_PERIODO")
     private Long id;
+    @Column(name = "DIADASEMANA")
     private String diaDaSemana;
+    @Column(name = "TEMPERATURAMIN")
     private Double temperaturaMin;
+    @Column(name = "TEMPERATURAMAX")
     private Double temperaturaMax;
+    @Column(name = "HUMIDADE")
     private Double humidade;
+    @Column(name = "DISCRICAO")
     private String discricao;
+    @Column(name = "LONGETUDE")
+    private Double longetude;
+    @Column(name = "LATETUDE")
+    private Double latetude;
+    @Column(name = "DATAHORA")
+    private String dataHora;
 
+    public String getDataHora() {
+        return dataHora;
+    }
+
+    public void setDataHora(String dataHora) {
+        this.dataHora = dataHora;
+    }
+
+    public double getLongetude() {
+        return longetude;
+    }
+
+    public void setLongetude(double longetude) {
+        this.longetude = longetude;
+    }
+
+    public double getLatetude() {
+        return latetude;
+    }
+
+    public void setLatetude(double latetude) {
+        this.latetude = latetude;
+    }
 
     public Long getId() {
         return id;
@@ -67,9 +101,15 @@ public class Periodo implements Serializable {
 
     @Override
     public String toString() {
-        return getDiaDaSemana() + " "
-                + "Temperatura minima: "+getTemperaturaMin() + "ºC "
-                + "Temperatura maxima: "+getTemperaturaMax() + "ºC "
-                + "Humidade: "+getHumidade()+"%";
+        return "Periodo{" +
+                " diaDaSemana='" + diaDaSemana + '\'' +
+                ", temperaturaMin=" + temperaturaMin +
+                ", temperaturaMax=" + temperaturaMax +
+                ", humidade=" + humidade +
+                ", discricao='" + discricao + '\'' +
+                ", longetude=" + longetude +
+                ", latetude=" + latetude +
+                ", dataHora='" + dataHora + '\'' +
+                '}';
     }
 }
