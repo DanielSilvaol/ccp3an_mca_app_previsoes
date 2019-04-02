@@ -28,11 +28,14 @@
                     <th>Temperatura máxima</th>
                     <th>humidade relativa do ar</th>
                     <th>Resumo</th>
+                    <th>Latetude</th>
+                    <th>Longetude</th>
+                    <th>Horario</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="periodo : ${periodos}">
-                    <td th:text="${periodo.diaDaSemana}"></td>
+                    <td th:text="${periodo.diaDaSemana.getDia()}"></td>
                     <td th:text="${periodo.temperaturaMin}"></td>
                     <td th:text="${periodo.temperaturaMax}"></td>
                     <td th:text="${periodo.humidade}"></td>

@@ -10,8 +10,9 @@ public class Periodo implements Serializable {
     @GeneratedValue
     @Column(name = "ID_PERIODO")
     private Long id;
-    @Column(name = "DIADASEMANA")
-    private String diaDaSemana;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(nullable = false,name = "ID_SEM",foreignKey = @ForeignKey(name="FK_SEMANA_PERIODO"))
+    private Semana diaDaSemana;
     @Column(name = "TEMPERATURAMIN")
     private Double temperaturaMin;
     @Column(name = "TEMPERATURAMAX")
@@ -59,12 +60,20 @@ public class Periodo implements Serializable {
         this.id = id;
     }
 
-    public String getDiaDaSemana() {
+    public Semana getDiaDaSemana() {
         return diaDaSemana;
     }
 
-    public void setDiaDaSemana(String diaDaSemana) {
+    public void setDiaDaSemana(Semana diaDaSemana) {
         this.diaDaSemana = diaDaSemana;
+    }
+
+    public void setLongetude(Double longetude) {
+        this.longetude = longetude;
+    }
+
+    public void setLatetude(Double latetude) {
+        this.latetude = latetude;
     }
 
     public Double getTemperaturaMin() {
@@ -102,7 +111,7 @@ public class Periodo implements Serializable {
     @Override
     public String toString() {
         return "Periodo{" +
-                " diaDaSemana='" + diaDaSemana + '\'' +
+                " diaDaSemana='" + diaDaSemana.getDia() + '\'' +
                 ", temperaturaMin=" + temperaturaMin +
                 ", temperaturaMax=" + temperaturaMax +
                 ", humidade=" + humidade +
