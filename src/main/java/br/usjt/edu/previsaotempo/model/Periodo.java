@@ -13,6 +13,9 @@ public class Periodo implements Serializable {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(nullable = false,name = "ID_SEM",foreignKey = @ForeignKey(name="FK_SEMANA_PERIODO"))
     private Semana diaDaSemana;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(nullable = false,name = "id_cidade",foreignKey = @ForeignKey(name = "FK_tb_periodo_tb_cidade"))
+    private Cidade cidade;
     @Column(name = "TEMPERATURAMIN")
     private Double temperaturaMin;
     @Column(name = "TEMPERATURAMAX")
@@ -27,6 +30,14 @@ public class Periodo implements Serializable {
     private Double latetude;
     @Column(name = "DATAHORA")
     private String dataHora;
+
+    public Cidade getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
+    }
 
     public String getDataHora() {
         return dataHora;

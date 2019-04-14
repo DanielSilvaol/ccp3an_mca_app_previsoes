@@ -5,6 +5,7 @@ import br.usjt.edu.previsaotempo.repository.PeriodosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -24,9 +25,9 @@ public class PeriodosController {
         mv.addObject(new Periodo());
         return mv;
     }
-
-public String Salvar(Periodo periodo){
-        repository.save(periodo);
-        return "redirect:/periodos";
-}
+//    @PostMapping()
+//    public String Salvar(Periodo periodo) {
+//        repository.save(periodo);
+//        return "redirect:/periodos";
+//    }
 }

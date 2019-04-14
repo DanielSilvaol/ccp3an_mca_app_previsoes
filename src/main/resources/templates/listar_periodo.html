@@ -28,6 +28,7 @@
                     <th>Temperatura máxima</th>
                     <th>humidade relativa do ar</th>
                     <th>Resumo</th>
+                    <th>Cidade</th>
                     <th>Latetude</th>
                     <th>Longetude</th>
                     <th>Horario</th>
@@ -40,8 +41,9 @@
                     <td th:text="${periodo.temperaturaMax}"></td>
                     <td th:text="${periodo.humidade}"></td>
                     <td th:text="${periodo.discricao}"></td>
-                    <td th:text="${periodo.latetude}"></td>
-                    <td th:text="${periodo.longetude}"></td>
+                    <td th:text="${periodo.cidade.nome}"></td>
+                    <td th:text="${periodo.cidade.latitude}"></td>
+                    <td th:text="${periodo.cidade.longitude}"></td>
                     <td th:text="${periodo.dataHora}"></td>
                 </tr>
                 </tbody>
