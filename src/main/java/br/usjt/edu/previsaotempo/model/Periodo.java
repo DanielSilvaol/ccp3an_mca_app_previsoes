@@ -24,10 +24,6 @@ public class Periodo implements Serializable {
     private Double humidade;
     @Column(name = "DISCRICAO")
     private String discricao;
-    @Column(name = "LONGETUDE")
-    private Double longetude;
-    @Column(name = "LATETUDE")
-    private Double latetude;
     @Column(name = "DATAHORA")
     private String dataHora;
 
@@ -47,21 +43,7 @@ public class Periodo implements Serializable {
         this.dataHora = dataHora;
     }
 
-    public double getLongetude() {
-        return longetude;
-    }
 
-    public void setLongetude(double longetude) {
-        this.longetude = longetude;
-    }
-
-    public double getLatetude() {
-        return latetude;
-    }
-
-    public void setLatetude(double latetude) {
-        this.latetude = latetude;
-    }
 
     public Long getId() {
         return id;
@@ -77,14 +59,6 @@ public class Periodo implements Serializable {
 
     public void setDiaDaSemana(Semana diaDaSemana) {
         this.diaDaSemana = diaDaSemana;
-    }
-
-    public void setLongetude(Double longetude) {
-        this.longetude = longetude;
-    }
-
-    public void setLatetude(Double latetude) {
-        this.latetude = latetude;
     }
 
     public Double getTemperaturaMin() {
@@ -127,8 +101,8 @@ public class Periodo implements Serializable {
                 ", temperaturaMax=" + temperaturaMax +
                 ", humidade=" + humidade +
                 ", discricao='" + discricao + '\'' +
-                ", longetude=" + longetude +
-                ", latetude=" + latetude +
+                ", longetude=" + cidade.getLongitude() +
+                ", latetude=" + cidade.getLatitude() +
                 ", dataHora='" + dataHora + '\'' +
                 '}';
     }
